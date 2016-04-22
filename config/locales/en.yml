@@ -15,3 +15,7 @@ en:
     register: "Register"
     confirm_password: "Confirm Password"
     log_out: "Log out"
+    profile: "Profile"
+    settings: "Settings"
+    account: "Account"
+    edit: "Edit"
