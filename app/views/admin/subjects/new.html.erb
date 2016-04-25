@@ -1,0 +1,22 @@
+<div id="page-wrapper" >
+  <div id="page-inner">
+    <h1><%= t"subject.new_subject" %></h1>
+    <hr/>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h3>
+              <%= link_to admin_subjects_path do %>
+                <i class="fa fa-angle-left">
+                  <%= t"subject.subjects" %>
+                </i>
+              <% end %>
+            </h3>
+            <%= render "subject_form" %>
+          </div>
+       </div>
+      </div>
+    </div>
+  </div>
+</div>

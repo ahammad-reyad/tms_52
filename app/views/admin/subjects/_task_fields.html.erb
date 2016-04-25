@@ -1,0 +1,11 @@
+<div class="form-group fields">
+  <%= f.hidden_field :id %>
+  <%= f.label :title, class: "col-sm-4 control-label" %>
+  <div class="col-sm-4">
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+  <div class="col-sm-4">
+    <%= f.hidden_field :_destroy, class: "removable" %>
+    <%= f.link_to_remove t("subject.task_remove") %>
+  </div>
+</div>
