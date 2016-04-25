@@ -1,0 +1,16 @@
+<section class="wrapper">
+  <h3>
+    <%= link_to admin_subjects_path do %>
+      <i class="fa fa-angle-left">
+        <%= t "subject.subject" %>
+      </i>
+    <% end %>
+  </h3>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="form-panel">
+        <%= render "subject_form" %>
+      </div>
+    </div>
+  </div>
+</section>
