@@ -1,6 +1,9 @@
 class Admin::SubjectsController < ApplicationController
   load_and_authorize_resource
 
+  def index
+  end
+
   def new
   end
 
@@ -11,6 +14,16 @@ class Admin::SubjectsController < ApplicationController
     else
       flash[:danger] = t "subject.create_failure"
       redirect_to root_url
+    end
+  end
+
+  def destroy
+    if @subject.destroy
+      flash[:success] = t "subject.delete_success"
+      redirect_to admin_subjects_path
+    else
+      flash.now[:danger] = t "subject.delete_failure"
+      render :index
     end
   end
 

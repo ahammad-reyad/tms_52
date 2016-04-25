@@ -11,6 +11,7 @@ en:
   help_msg: "This is the help page"
   author_name: "by Ahammad Reyad"
   access_denied: "Do not have permission for this operation"
+  delete: "Delete"
   account:
     log_in: "Log In"
     register: "Register"
@@ -29,3 +30,6 @@ en:
     task_remove: "Remove"
     new_subject: "New subject"
     subjects: "Subjects"
+    add: "Add Subject"
+    delete_success: "Subject deleted successfully"
+    delete_failure: "Subject delete failed"
