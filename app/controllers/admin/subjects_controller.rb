@@ -27,6 +27,16 @@ class Admin::SubjectsController < ApplicationController
     end
   end
 
+  def update
+    if @subject.update_attributes subject_params
+      flash[:success] = t "subject.update_success"
+      redirect_to admin_subjects_path
+    else
+      flash.now[:danger] = t "subject.update_failure"
+      render :edit
+    end
+  end
+
   private
   def subject_params
     params.require(:subject).permit :title, :instruction,

@@ -12,6 +12,7 @@ en:
   author_name: "by Ahammad Reyad"
   access_denied: "Do not have permission for this operation"
   delete: "Delete"
+  error: "Error"
   account:
     log_in: "Log In"
     register: "Register"
@@ -33,3 +34,6 @@ en:
     add: "Add Subject"
     delete_success: "Subject deleted successfully"
     delete_failure: "Subject delete failed"
+    update_success: "Subject success successful"
+    update_failure: "Subject update failure"
+    subject: "Subject"
