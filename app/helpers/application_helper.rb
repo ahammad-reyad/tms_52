@@ -7,4 +7,8 @@ module ApplicationHelper
       page_title + " | " + base_title
     end
   end
+
+  def datetime date
+    I18n.l date.to_date
+  end
 end

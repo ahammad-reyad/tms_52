@@ -2,6 +2,9 @@ class Admin::CoursesController < ApplicationController
   load_and_authorize_resource
   before_action :load_subjects, only: [:new, :edit]
 
+  def index
+  end
+
   def new
   end
 
