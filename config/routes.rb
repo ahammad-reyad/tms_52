@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   }
   namespace :admin do
     root "courses#index"
+    resources :courses
     resources :subjects
   end
 end
