@@ -17,6 +17,22 @@ class Admin::CoursesController < ApplicationController
     redirect_to root_url
   end
 
+  def update
+    if @course.update_attributes course_params
+      flash[:success] = t "course.update_success"
+      redirect_to admin_courses_path current_user
+    else
+      flash[:danger] = t "course.update_failure"
+      render "edit"
+    end
+  end
+
+  def destroy
+    @course.destroy
+    flash[:success] = t "course.delete_success"
+    redirect_to admin_courses_path
+  end
+
   private
   def course_params
     params.require(:course).permit :title, :instruction, :start_date, :end_date, :status,
