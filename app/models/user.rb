@@ -9,4 +9,6 @@ class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable,
     :trackable, :validatable
+
+  enum user_type: {admin: 0, supervisor: 1, trainee: 2}
 end
