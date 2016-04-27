@@ -71,3 +71,8 @@ en:
     supervisor: "supervisor"
     trainee: "trainee"
     new: "New user"
+    edit: "Edit user"
+    delete_success: "User deleted successfully"
+    delete_failure: "User delete failed"
+    update_success: "User update successful"
+    update_failure: "User update failure"
