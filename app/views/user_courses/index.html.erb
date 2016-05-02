@@ -1,0 +1,46 @@
+<div id="page-wrapper" >
+  <div id="page-inner">
+    <hr/>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h2 class="page-header"><%= t ".user_courses" %></h2>
+          </div>
+          <div class="panel-body">
+            <table class="table table-striped table-advance table-hover">
+              <hr>
+              <thead>
+                <tr>
+                  <th><%= t ".title" %></th>
+                  <th><%= t ".instruction" %></th>
+                  <th><%= t ".supervisor_count" %></th>
+                  <th><%= t ".trainee_count" %></th>
+                  <th><%= t ".course_status" %></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @user_courses.each do |user_courses| %>
+                  <tr>
+                    <td>
+                      <% if user_courses.course.status.eql? "Started" %>
+                        <%= link_to user_courses.course.title, user_courses.course,
+                          class: "btn btn-lg btn-success" %>
+                      <% else %>
+                        <%= user_courses.course.title %>
+                      <% end %>
+                    </td>
+                    <td><%= user_courses.course.instruction.truncate 30 %></td>
+                    <td><%= user_courses.course.supervisor_courses.count %></td>
+                    <td><%= user_courses.course.user_courses.count %></td>
+                    <td><%= user_courses.course.status %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
