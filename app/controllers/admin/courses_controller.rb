@@ -20,7 +20,7 @@ class Admin::CoursesController < ApplicationController
   def update
     if @course.update_attributes course_params
       flash[:success] = t "course.update_success"
-      redirect_to admin_courses_path current_user
+      redirect_to admin_courses_path
     else
       flash[:danger] = t "course.update_failure"
       render "edit"
@@ -36,7 +36,9 @@ class Admin::CoursesController < ApplicationController
   private
   def course_params
     params.require(:course).permit :title, :instruction, :start_date, :end_date, :status,
-      course_subjects_attributes: [:id, :course_id, :subject_id, :_destroy]
+      course_subjects_attributes: [:id, :course_id, :subject_id, :_destroy],
+      supervisor_courses_attributes: [:id, :user_id, :course_id, :_destroy],
+      trainee_ids: []
   end
 
   def load_subjects
