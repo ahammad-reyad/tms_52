@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     sessions: "users/sessions",
     registrations: "users/registrations"
   }
+  resources :courses, only: [:index, :show]
+  resources :user_courses, only: :index
   namespace :admin do
     root "courses#index"
     resources :courses do
