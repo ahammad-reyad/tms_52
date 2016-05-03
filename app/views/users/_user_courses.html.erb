@@ -1,0 +1,36 @@
+<div class="tab-pane active" id="mycourses">
+  <ul class="timeline timeline-inverse">
+    <div class="col-md-12">
+      <div class="box">
+        <div class="box-header with-border">
+          <h3 class="box-title">
+            <i class="fa fa-folder-open-o"></i><%= t ".title_courses" %>
+          </h3>
+        </div>
+        <div class="box-body">
+          <table class="table table-bordered">
+            <thead>
+              <th><%= t ".name" %></th>
+              <th><%= t ".instruction" %></th>
+              <th><%= t ".start_date" %></th>
+              <th><%= t ".end_date" %></th>
+              <th><%= t ".status" %></th>
+            </thead>
+            <tbody>
+              <% @user_courses.each do |user_course| %>
+                <tr>
+                  <td><%= user_course.course.title %></td>
+                  <td><%= user_course.course.instruction.truncate 50 %></td>
+                  <td><%= datetime user_course.course.start_date %></td>
+                  <td><%= datetime user_course.course.end_date %></td>
+                  <td><%= user_course.course.status %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div >
+  </ul>
+</div>
+</div>

@@ -6,6 +6,7 @@ class UserCourse < ActiveRecord::Base
   has_many :user_subjects, dependent: :destroy
 
   scope :course_for_current_user, -> (user_id) {where user_id: user_id}
+  scope :current_active_course, -> (course_id) {find_by course_id: course_id}
 
   def create_user_subjects
     subjects = self.course.subjects

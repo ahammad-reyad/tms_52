@@ -1,0 +1,14 @@
+<div class="nav-tabs-custom">
+  <ul class="nav nav-tabs">
+    <li class="active">
+      <a href="#mycourses" data-toggle="tab" aria-expanded="true">
+      <%= t ".mycourses" %></a>
+    </li>
+    <li>
+      <a href="#currentcourses" data-toggle="tab" aria-expanded="true"><%= t ".activecourse" %></a>
+    </li>
+  </ul>
+  <div class="tab-content">
+    <%= render "current_course" %>
+    <%= render "user_courses" %>
+</div>

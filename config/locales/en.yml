@@ -13,6 +13,7 @@ en:
   access_denied: "Do not have permission for this operation"
   delete: "Delete"
   error: "Error"
+  finish: "Finish"
   account:
     log_in: "Log In"
     register: "Register"
