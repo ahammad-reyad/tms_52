@@ -7,7 +7,8 @@ Rails.application.routes.draw do
     registrations: "users/registrations"
   }
   resources :courses, only: [:index, :show]
-  resources :user_courses, only: :index
+  resources :user_courses
+  resources :users, only: :show
   namespace :admin do
     root "courses#index"
     resources :courses do

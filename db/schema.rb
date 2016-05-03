@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160427054339) do
+ActiveRecord::Schema.define(version: 20160503080731) do
 
   create_table "activities", force: :cascade do |t|
     t.text     "details"
@@ -81,8 +81,9 @@ ActiveRecord::Schema.define(version: 20160427054339) do
   create_table "user_courses", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "course_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "joined",     default: false
   end
 
   add_index "user_courses", ["course_id"], name: "index_user_courses_on_course_id"
@@ -90,13 +91,15 @@ ActiveRecord::Schema.define(version: 20160427054339) do
 
   create_table "user_subjects", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "course_subject_id"
     t.string   "status"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "user_course_id"
+    t.integer  "subject_id"
   end
 
-  add_index "user_subjects", ["course_subject_id"], name: "index_user_subjects_on_course_subject_id"
+  add_index "user_subjects", ["subject_id"], name: "index_user_subjects_on_subject_id"
+  add_index "user_subjects", ["user_course_id"], name: "index_user_subjects_on_user_course_id"
   add_index "user_subjects", ["user_id"], name: "index_user_subjects_on_user_id"
 
   create_table "user_tasks", force: :cascade do |t|
