@@ -1,4 +1,6 @@
 class UserCourse < ActiveRecord::Base
+  include PublicActivity::Model
+  tracked recipient: ->(controller, model) {model && model.user}
   after_save :create_user_subjects
   belongs_to :user
   belongs_to :course

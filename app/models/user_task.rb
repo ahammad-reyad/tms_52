@@ -1,4 +1,6 @@
 class UserTask < ActiveRecord::Base
+  include PublicActivity::Model
+  tracked recipient: ->(controller, model) {model && model.user}
   belongs_to :user
   belongs_to :user_subject
   belongs_to :task

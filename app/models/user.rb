@@ -10,4 +10,9 @@ class User < ActiveRecord::Base
     :trackable, :validatable
 
   enum user_type: {admin: 0, supervisor: 1, trainee: 2}
+
+  scope :user_activity, -> (user) do
+    PublicActivity::Activity.order("created_at desc").
+    where recipient_id: user.id, trackable_type: UserTask
+  end
 end
