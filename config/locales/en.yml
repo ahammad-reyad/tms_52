@@ -79,3 +79,6 @@ en:
     update_failure: "User update failure"
   task:
     finished_task: "finished task"
+  mailer:
+    assigned: "Assigned trainee to"
+    removed: "Removed trainee from"
