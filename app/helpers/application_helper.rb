@@ -11,4 +11,8 @@ module ApplicationHelper
   def datetime date
     I18n.l date.to_date
   end
+
+  def find_user_task user_subject, task
+    user_subject.user_tasks.find_by task_id: task.id
+  end
 end

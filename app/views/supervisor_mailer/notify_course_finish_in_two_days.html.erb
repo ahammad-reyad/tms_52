@@ -1,0 +1,10 @@
+<div>
+  <h3><%= @supervisor.name %></h3>
+  <div class="container">
+    <h4><%= @course.name %></h4>
+    <aside>
+      <p><%= t ".status", status: @course.status %></p>
+    </aside>
+    <%= render "shared/mailer/course_report", course: @course %>
+  </div>
+</div>

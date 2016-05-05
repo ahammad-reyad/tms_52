@@ -14,6 +14,7 @@ en:
   delete: "Delete"
   error: "Error"
   finish: "Finish"
+  not_finised: "Not finished"
   account:
     log_in: "Log In"
     register: "Register"
