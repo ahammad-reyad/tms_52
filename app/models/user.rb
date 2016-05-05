@@ -15,4 +15,6 @@ class User < ActiveRecord::Base
     PublicActivity::Activity.order("created_at desc").
     where recipient_id: user.id, trackable_type: UserTask
   end
+
+  scope :find_supervisors, ->{where id: SupervisorCourse.pluck(:user_id)}
 end

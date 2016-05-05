@@ -1,0 +1,35 @@
+<table border="1">
+  <tr>
+    <th><%= t ".subject" %></th>
+    <% course.course_subjects.each do |course_subject| %>
+      <th colspan="<%= course_subject.subject.tasks.count %>">
+        <%= course_subject.subject.title %>
+      </th>
+    <% end %>
+    <th><%= t ".summary" %></th>
+  </tr>
+  <tr>
+    <th></th>
+    <% course.course_subjects.each do |course_subject| %>
+      <% if course_subject.subject.tasks.any? %>
+        <% course_subject.subject.tasks.each do |task| %>
+          <th><%= task.title %></th>
+        <% end %>
+      <% else %>
+        <th></th>
+      <% end %>
+    <% end %>
+    <th></th>
+  </tr>
+  <tr>
+    <% course.trainees.each do |user| %>
+      <td><%= user.name %></td>
+      <%= render "shared/mailer/last_day_month_summary", user: user,
+        course: course %>
+      <td>
+        <%= "#{user.user_tasks.count}/
+          #{course.course_subject.subject.tasks.count}" %>
+      </td>
+    <% end %>
+  </tr>
+</table>
