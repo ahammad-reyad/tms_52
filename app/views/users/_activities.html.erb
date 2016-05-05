@@ -1,0 +1,9 @@
+<h3><%= t ".activities" %></h3>
+<% @activities.each do |activity| %>
+  <% if activity.trackable %>
+    <%= activity.recipient.name %>
+    <%= t("task.finished_task") %>
+    <%= activity.trackable.task.title %>
+    <br />
+  <% end %>
+<% end %>
