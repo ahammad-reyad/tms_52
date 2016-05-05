@@ -3,6 +3,9 @@ source "https://rubygems.org"
 gem "rails",        "4.2.6"
 gem "devise"
 gem "public_activity"
+gem "sidekiq"
+gem "whenever", require: false
+gem "sinatra", require: false
 gem "nested_form"
 gem "cancancan", "~> 1.10"
 gem "font-awesome-rails"

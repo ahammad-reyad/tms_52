@@ -1,6 +1,8 @@
 class UserCourse < ActiveRecord::Base
   include PublicActivity::Model
   tracked recipient: ->(controller, model) {model && model.user}
+  after_create :send_email_when_assigned
+  after_destroy :send_email_when_removed
   after_save :create_user_subjects
   belongs_to :user
   belongs_to :course
@@ -24,5 +26,14 @@ class UserCourse < ActiveRecord::Base
         )
       end
     end
+  end
+
+  private
+  def send_email_when_assigned
+    TraineeWorker.perform_async TraineeWorker::ASSIGN_TRAINEE, self.user_id, self.course_id
+  end
+
+  def send_email_when_removed
+    TraineeWorker.perform_async TraineeWorker::REMOVE_TRAINEE, self.user_id, self.course_id
   end
 end

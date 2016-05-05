@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  require "sidekiq/web"
+  mount Sidekiq::Web => "/sidekiq"
   root             "static_pages#home"
   get "help"    => "static_pages#help"
   get "about"   => "static_pages#about"
