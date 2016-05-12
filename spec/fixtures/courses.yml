@@ -1,0 +1,7 @@
+course1:
+  id: 100
+  title: "new course"
+  instruction: "new course"
+  start_date: "27/11/2015"
+  end_date: "27/11/2015"
+  status: "Started"
