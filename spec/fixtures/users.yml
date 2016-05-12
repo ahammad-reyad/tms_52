@@ -1,0 +1,23 @@
+user1:
+  id: 100
+  name: "a"
+  email: "a@a.com"
+  encrypted_password: "11111111"
+  user_type: 0
+
+user2:
+  id: 200
+  name: "b"
+  email: "b@b.com"
+  user_type: User.user_types[:supervisor]
+
+user3:
+  id: 300
+  name: "c"
+  email: "c@c.com"
+  user_type: User.user_types[:trainee]
+
+xuser1:
+  id: 400
+  name: "d"
+  email: "d@d.com"
