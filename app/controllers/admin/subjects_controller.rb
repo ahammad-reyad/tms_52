@@ -10,21 +10,10 @@ class Admin::SubjectsController < ApplicationController
   def create
     if @subject.save
       flash[:success] = t "subject.create_success"
-      redirect_to root_url
     else
       flash[:danger] = t "subject.create_failure"
-      redirect_to root_url
     end
-  end
-
-  def destroy
-    if @subject.destroy
-      flash[:success] = t "subject.delete_success"
-      redirect_to admin_subjects_path
-    else
-      flash.now[:danger] = t "subject.delete_failure"
-      render :index
-    end
+    redirect_to root_url
   end
 
   def update
@@ -34,6 +23,13 @@ class Admin::SubjectsController < ApplicationController
     else
       flash.now[:danger] = t "subject.update_failure"
       render :edit
+    end
+  end
+
+  def destroy
+    if @subject.destroy
+      flash[:success] = t "subject.delete_success"
+      redirect_to admin_subjects_path
     end
   end
 
